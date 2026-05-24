@@ -40,9 +40,7 @@ export default function Index() {
     else if (selected === "waiter") navigate("/waiter/login");
     else if (selected === "chef") navigate("/chef/login");
   }
-
   const currentRole = roles.find(r => r.id === selected);
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col transition-colors">
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
