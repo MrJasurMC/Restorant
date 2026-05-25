@@ -77,11 +77,6 @@ export default function Index() {
                   <div className="font-bold text-gray-900 dark:text-white">{r.label}</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{r.desc}</div>
                 </div>
-                {selected === r.id && (
-                  <div className="w-6 h-6 rounded-full bg-current flex-shrink-0" style={{ backgroundColor: "currentColor" }}>
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </div>
-                )}
               </button>
             ))}
           </div>

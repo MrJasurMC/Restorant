@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { FiMail, FiLock, FiLogIn, FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 
-const ADMIN_EMAIL = "jasurbek@gmail.com";
-const ADMIN_PASSWORD = "Jasurbek";
+const ADMIN_EMAIL = "satorugojo@goatjo.com";
+const ADMIN_PASSWORD = "satorugojo";
 
 export default function AdminAuth() {
   const navigate = useNavigate();
