@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { FiMail, FiLock, FiLogIn, FiSun, FiMoon } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 
-const ADMIN_EMAIL = "satorugojo@goatjo.com";
-const ADMIN_PASSWORD = "Jasurbek123";
+const ADMIN_EMAIL = "mrjasurmc@gmail.com";
+const ADMIN_PASSWORD = "mrjasurmc123";
 
 export default function AdminAuth() {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ export default function AdminAuth() {
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Parol</label>
             <div className="relative">
               <FiLock className="absolute left-3 top-3 text-gray-400" size={16} />
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" required className="w-full border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2.5 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-300" />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Iltimos, parolni kiriting!" required className="w-full border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2.5 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-300" />
             </div>
           </div>
           <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
