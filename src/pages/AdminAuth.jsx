@@ -34,7 +34,7 @@ export default function AdminAuth() {
           <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
             <FiLogIn size={28} className="text-orange-500" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Kitchen Admin</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Oshxona Admini</h1>
           <p className="text-sm text-gray-400 mt-1">Oshxona paneliga kirish</p>
         </div>
         {error && (

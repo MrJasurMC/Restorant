@@ -28,7 +28,7 @@ export default function ChefLogin() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col transition-colors">
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
         <button onClick={() => navigate("/")} className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-green-500 transition-colors">
-          <FiArrowLeft size={18} /> Back
+          <FiArrowLeft size={18} /> Orqaga
         </button>
         <button onClick={toggle} className="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
           {dark ? <FiSun size={18} /> : <FiMoon size={18} />}
@@ -41,7 +41,7 @@ export default function ChefLogin() {
             <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
               <FiCoffee size={28} className="text-green-500" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Chef Login</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Oshpaz kirish</h1>
             <p className="text-sm text-gray-400 mt-1">6 xonali PIN kiriting</p>
           </div>
 

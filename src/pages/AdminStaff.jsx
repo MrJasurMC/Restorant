@@ -49,18 +49,18 @@ export default function AdminStaff() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!form.name.trim()) return showToast("Name required!", "error");
-    if (form.pin.length !== 6 || !/^\d{6}$/.test(form.pin)) return showToast("PIN must be exactly 6 digits", "error");
+    if (!form.name.trim()) return showToast("Ism kiritish majburiy!", "error");
+    if (form.pin.length !== 6 || !/^\d{6}$/.test(form.pin)) return showToast("PIN aynan 6 ta raqamdan iborat bo'lishi kerak", "error");
 
     const conflict = staff.find(s => s.pin === form.pin && s.id !== editing);
-    if (conflict) return showToast("This PIN is already taken!", "error");
+    if (conflict) return showToast("Bu PIN allaqachon band!", "error");
 
     if (editing) {
       dispatch(updateStaff({ ...form, id: editing, active: staff.find(s => s.id === editing)?.active ?? true }));
-      showToast("Staff updated ✓");
+      showToast("Xodim yangilandi ✓");
     } else {
       dispatch(addStaff(form));
-      showToast("Staff added ✓");
+      showToast("Xodim qo'shildi ✓");
     }
     setShowForm(false);
     setEditing(null);
@@ -82,11 +82,11 @@ export default function AdminStaff() {
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
           <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-sm w-full border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Delete Staff</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-5">This cannot be undone.</p>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Xodimni o'chirish</h3>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-5">Bu amalni bekor qilib bo'lmaydi.</p>
             <div className="flex gap-3">
-              <button onClick={() => setDeleteId(null)} className="flex-1 border border-gray-200 dark:border-gray-700 rounded-xl py-2.5 text-sm text-gray-600 dark:text-gray-400">Cancel</button>
-              <button onClick={() => { dispatch(deleteStaff(deleteId)); setDeleteId(null); showToast("Deleted"); }} className="flex-1 bg-red-500 hover:bg-red-600 text-white rounded-xl py-2.5 text-sm font-medium">Delete</button>
+              <button onClick={() => setDeleteId(null)} className="flex-1 border border-gray-200 dark:border-gray-700 rounded-xl py-2.5 text-sm text-gray-600 dark:text-gray-400">Bekor</button>
+              <button onClick={() => { dispatch(deleteStaff(deleteId)); setDeleteId(null); showToast("O'chirildi"); }} className="flex-1 bg-red-500 hover:bg-red-600 text-white rounded-xl py-2.5 text-sm font-medium">O'chirish</button>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function AdminStaff() {
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
           <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 w-full max-w-sm border border-gray-100 dark:border-gray-800">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-5">{editing ? "Edit Staff" : "Add Staff"}</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-5">{editing ? "Xodimni tahrirlash" : "Xodim qo'shish"}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-1">Full Name *</label>
@@ -106,10 +106,10 @@ export default function AdminStaff() {
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300 block mb-2">Role *</label>
                 <div className="grid grid-cols-2 gap-2">
                   <button type="button" onClick={() => handleRoleChange("waiter")} className={`py-2.5 rounded-xl text-sm font-semibold border-2 flex items-center justify-center gap-1.5 transition-colors ${form.role === "waiter" ? "border-orange-400 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400" : "border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400"}`}>
-                    <FiUser size={14} /> Waiter
+                    <FiUser size={14} /> Ofitsant
                   </button>
                   <button type="button" onClick={() => handleRoleChange("chef")} className={`py-2.5 rounded-xl text-sm font-semibold border-2 flex items-center justify-center gap-1.5 transition-colors ${form.role === "chef" ? "border-green-400 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400" : "border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400"}`}>
-                    <FiCoffee size={14} /> Chef
+                    <FiCoffee size={14} /> Oshpaz
                   </button>
                 </div>
               </div>
@@ -127,11 +127,11 @@ export default function AdminStaff() {
                     Random
                   </button>
                 </div>
-                <p className="text-xs text-gray-400 mt-1">Waiters: 1xxxxx · Chefs: 2xxxxx (convention only)</p>
+                <p className="text-xs text-gray-400 mt-1">Ofitsantlar: 1xxxxx · Oshpazlar: 2xxxxx (shartli)</p>
               </div>
               <div className="flex gap-3 pt-1">
-                <button type="button" onClick={() => { setShowForm(false); setEditing(null); }} className="flex-1 border border-gray-200 dark:border-gray-700 rounded-xl py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">Cancel</button>
-                <button type="submit" className="flex-1 bg-orange-500 hover:bg-orange-600 text-white rounded-xl py-2.5 text-sm font-bold">{editing ? "Save" : "Add"}</button>
+                <button type="button" onClick={() => { setShowForm(false); setEditing(null); }} className="flex-1 border border-gray-200 dark:border-gray-700 rounded-xl py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">Bekor</button>
+                <button type="submit" className="flex-1 bg-orange-500 hover:bg-orange-600 text-white rounded-xl py-2.5 text-sm font-bold">{editing ? "Saqlash" : "Qo'shish"}</button>
               </div>
             </form>
           </div>
@@ -145,8 +145,8 @@ export default function AdminStaff() {
               <FiArrowLeft size={18} />
             </button>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Staff</h1>
-              <p className="text-sm text-gray-400">{waiters.length} waiters · {chefs.length} chefs</p>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Xodimlar</h1>
+              <p className="text-sm text-gray-400">{waiters.length} ta ofitsant · {chefs.length} ta oshpaz</p>
             </div>
           </div>
           <div className="flex gap-2">
@@ -157,12 +157,12 @@ export default function AdminStaff() {
               <FiPlus size={14} /> Add
             </button>
             <button onClick={logout} className="flex items-center gap-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">
-              <FiLogOut size={14} /> Logout
+              <FiLogOut size={14} /> Chiqish
             </button>
           </div>
         </div>
         <div className="max-w-4xl mx-auto px-4 pb-3 flex gap-2">
-          {[["all","All"], ["waiter","Waiters"], ["chef","Chefs"]].map(([key, label]) => (
+          {[["all","Barchasi"], ["waiter","Ofitsantlar"], ["chef","Oshpazlar"]].map(([key, label]) => (
             <button key={key} onClick={() => setTab(key)} className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${tab === key ? "bg-orange-500 text-white" : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"}`}>
               {label} ({key === "all" ? staff.length : staff.filter(s => s.role === key).length})
             </button>
@@ -174,8 +174,8 @@ export default function AdminStaff() {
         {filtered.length === 0 ? (
           <div className="text-center py-20">
             <FiUsers className="text-gray-300 dark:text-gray-600 mx-auto mb-3" size={48} />
-            <p className="text-gray-400">No staff yet</p>
-            <button onClick={openAdd} className="mt-4 bg-orange-500 text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-orange-600">Add first staff</button>
+            <p className="text-gray-400">Hozircha xodimlar yo'q</p>
+            <button onClick={openAdd} className="mt-4 bg-orange-500 text-white px-5 py-2 rounded-xl text-sm font-semibold hover:bg-orange-600">Birinchi xodim qo'shish</button>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -192,7 +192,7 @@ export default function AdminStaff() {
                     </div>
                   </div>
                   <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${member.active ? "bg-green-100 text-green-600 dark:bg-green-900/20 dark:text-green-400" : "bg-red-100 text-red-500 dark:bg-red-900/20 dark:text-red-400"}`}>
-                    {member.active ? "Active" : "Inactive"}
+                    {member.active ? "Faol" : "Nofaol"}
                   </span>
                 </div>
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-2 mb-4 flex items-center justify-between">
@@ -201,7 +201,7 @@ export default function AdminStaff() {
                 </div>
                 <div className="flex gap-2">
                   <button onClick={() => dispatch(toggleStaff(member.id))} className={`flex-1 py-1.5 rounded-lg text-xs font-medium border transition-colors ${member.active ? "border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800" : "border-green-200 dark:border-green-800 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20"}`}>
-                    {member.active ? "Deactivate" : "Activate"}
+                    {member.active ? "O'chirish" : "Yoqish"}
                   </button>
                   <button onClick={() => openEdit(member)} className="border border-blue-100 dark:border-blue-900/30 rounded-lg px-2.5 py-1.5 text-xs text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20">
                     <FiEdit2 size={12} />

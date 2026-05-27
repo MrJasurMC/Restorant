@@ -7,22 +7,22 @@ import { useTheme } from "../context/ThemeContext";
 import { FiLogOut, FiCheck, FiSun, FiMoon, FiCoffee } from "react-icons/fi";
 
 const STATUS_STYLE = {
-  received:  { label: "New Order",    bg: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" },
-  preparing: { label: "Preparing",    bg: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400" },
-  ready:     { label: "Ready",        bg: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400" },
-  delivered: { label: "Delivered",    bg: "bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400" },
+  received:  { label: "Yangi buyurtma", bg: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" },
+  preparing: { label: "Tayyorlanmoqda", bg: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400" },
+  ready:     { label: "Tayyor",          bg: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400" },
+  delivered: { label: "Yetkazildi",      bg: "bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400" },
 };
 
 const ORDER_TYPE_BADGE = {
-  dine_in:  { label: "🪑 Dine In",   cls: "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400" },
-  takeaway: { label: "🥡 Takeaway",  cls: "bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400" },
+  dine_in:  { label: "🪑 Restoranda", cls: "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400" },
+  takeaway: { label: "🥡 Olib ket",   cls: "bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400" },
 };
 
 function timeSince(dateStr) {
   const mins = Math.floor((Date.now() - new Date(dateStr)) / 60000);
-  if (mins < 1) return "Just now";
-  if (mins < 60) return `${mins}m ago`;
-  return `${Math.floor(mins / 60)}h ago`;
+  if (mins < 1) return "Hozir";
+  if (mins < 60) return `${mins} daq oldin`;
+  return `${Math.floor(mins / 60)} soat oldin`;
 }
 
 function formatUZS(amount) {
@@ -69,16 +69,16 @@ export default function ChefKitchen() {
           <div>
             <div className="flex items-center gap-2">
               <FiCoffee className="text-green-500" size={22} />
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Kitchen</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Oshxona</h1>
             </div>
-            <p className="text-sm text-gray-400">{active.length} active · {done.length} done · <span className="text-green-500 font-medium">{session?.name}</span></p>
+            <p className="text-sm text-gray-400">{active.length} ta aktiv · {done.length} ta tugallangan · <span className="text-green-500 font-medium">{session?.name}</span></p>
           </div>
           <div className="flex gap-2">
             <button onClick={toggle} className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">
               {dark ? <FiSun size={16} /> : <FiMoon size={16} />}
             </button>
             <button onClick={logout} className="flex items-center gap-1 px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800">
-              <FiLogOut size={14} /> Logout
+              <FiLogOut size={14} /> Chiqish
             </button>
           </div>
         </div>
@@ -88,8 +88,8 @@ export default function ChefKitchen() {
         {active.length === 0 ? (
           <div className="text-center py-24">
             <FiCheck className="text-green-400 mx-auto mb-4" size={56} />
-            <h3 className="text-xl font-semibold text-gray-700 dark:text-white">No active orders</h3>
-            <p className="text-gray-400 mt-1">New orders will appear here</p>
+            <h3 className="text-xl font-semibold text-gray-700 dark:text-white">Hozircha aktiv buyurtma yo'q</h3>
+            <p className="text-gray-400 mt-1">Yangi buyurtmalar shu yerda ko'rinadi</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -102,8 +102,8 @@ export default function ChefKitchen() {
                   <div className="px-5 py-4 border-b border-gray-50 dark:border-gray-800">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Table {order.table_number}</h3>
-                        <p className="text-xs text-gray-400 mt-0.5">{new Date(order.created_at).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })} · {timeSince(order.created_at)}</p>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{order.table_number}-stol</h3>
+                        <p className="text-xs text-gray-400 mt-0.5">{new Date(order.created_at).toLocaleTimeString("uz-UZ", { hour: "2-digit", minute: "2-digit" })} · {timeSince(order.created_at)}</p>
                         {order.waiter && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">👤 Waiter: {order.waiter.name}</p>}
                       </div>
                       <div className="flex flex-col gap-1 items-end">
@@ -127,7 +127,7 @@ export default function ChefKitchen() {
                   )}
                   <div className="px-5 pb-5">
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">Total</span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">Jami</span>
                       <span className="font-bold text-orange-500 text-lg">{formatUZS(order.total_price)}</span>
                     </div>
                     <select
@@ -144,7 +144,7 @@ export default function ChefKitchen() {
                         onClick={() => handleComplete(order.id)}
                         className="w-full bg-green-500 hover:bg-green-600 text-white rounded-xl py-2.5 text-sm font-bold flex items-center justify-center gap-2 transition-colors"
                       >
-                        <FiCheck size={16} /> Mark as Delivered
+                        <FiCheck size={16} /> Yetkazildi deb belgilash
                       </button>
                     )}
                   </div>
@@ -157,7 +157,7 @@ export default function ChefKitchen() {
         {done.length > 0 && (
           <div className="mt-12">
             <h2 className="text-lg font-bold text-gray-700 dark:text-gray-300 mb-4 flex items-center gap-2">
-              <FiCheck className="text-green-500" size={20} /> Completed ({done.length})
+              <FiCheck className="text-green-500" size={20} /> Tugallanganlar ({done.length})
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {done.map((order) => {
@@ -166,11 +166,11 @@ export default function ChefKitchen() {
                   <div key={order.id} className="bg-white dark:bg-gray-900 rounded-2xl border border-green-100 dark:border-green-900/30 overflow-hidden opacity-70">
                     <div className="px-5 py-3 flex justify-between items-center border-b border-gray-50 dark:border-gray-800">
                       <div>
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">Table {order.table_number}</h3>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">{order.table_number}-stol</h3>
                         <p className="text-xs text-gray-400">{new Date(order.created_at).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}</p>
                       </div>
                       <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 flex items-center gap-1">
-                        <FiCheck size={10} /> Done
+                        <FiCheck size={10} /> Tugallandi
                       </span>
                     </div>
                     <div className="px-5 py-3 space-y-1">
@@ -182,7 +182,7 @@ export default function ChefKitchen() {
                       ))}
                     </div>
                     <div className="px-5 pb-3 flex justify-between items-center">
-                      <span className="text-sm text-gray-400">Total</span>
+                      <span className="text-sm text-gray-400">Jami</span>
                       <span className="font-bold text-orange-500">{formatUZS(order.total_price)}</span>
                     </div>
                   </div>
