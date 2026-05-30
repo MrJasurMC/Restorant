@@ -146,7 +146,7 @@ export default function AdminDashboard() {
                         <td className="px-5 py-3 font-bold text-gray-900 dark:text-white">#{o.table_number}</td>
                         <td className="px-5 py-3">
                           <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${ORDER_TYPE_BADGE[ot] || ORDER_TYPE_BADGE.dine_in}`}>
-                            {ot === "takeaway" ? "🥡 Olib ket" : "🪑 Restoranda"}
+                            {ot === "takeaway" ? " Olib ket" : "Restoranda"}
                           </span>
                         </td>
                         <td className="px-5 py-3 text-gray-600 dark:text-gray-400">{o.waiter?.name || "—"}</td>

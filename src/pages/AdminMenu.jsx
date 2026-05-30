@@ -185,7 +185,7 @@ export default function AdminMenu() {
       <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">🍽️ Menyu Boshqarish</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Menyu Boshqarish</h1>
             <p className="text-sm text-gray-400">{items.length} ta taom</p>
           </div>
           <div className="flex gap-2 flex-wrap justify-end">

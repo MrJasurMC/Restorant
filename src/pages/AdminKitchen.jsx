@@ -37,7 +37,7 @@ export default function AdminKitchen() {
 
   function handleStatusChange(orderId, status) {
     dispatch(updateOrderStatus({ orderId, status }));
-    showToast("Status yangilandi ✓");
+    showToast("Status yangilandi! ");
   }
 
   function handleComplete(orderId) {
@@ -91,7 +91,7 @@ export default function AdminKitchen() {
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{order.table_number}-stol</h3>
                       <p className="text-xs text-gray-400 mt-0.5">{new Date(order.created_at).toLocaleTimeString("uz-UZ", { hour: "2-digit", minute: "2-digit" })} · {timeSince(order.created_at)}</p>
-                      {order.customer && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">👤 {order.customer.name} · {order.customer.people} kishi</p>}
+                      {order.customer && <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5"> {order.customer.name} · {order.customer.people} kishi</p>}
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${s.bg}`}>{s.label}</span>
                   </div>
