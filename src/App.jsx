@@ -22,6 +22,7 @@ import AdminKitchen from "./pages/AdminKitchen";
 import AdminTables from "./pages/AdminTables";
 import AdminMenu from "./pages/AdminMenu";
 import AdminStaff from "./pages/AdminStaff";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -50,6 +51,7 @@ export default function App() {
               <Route path="/admin/tables" element={<AdminTables />} />
               <Route path="/admin/menu" element={<AdminMenu />} />
               <Route path="/admin/staff" element={<AdminStaff />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
           <ToastContainer position="top-right" autoClose={2500} hideProgressBar={false} closeOnClick pauseOnHover theme="light" />
