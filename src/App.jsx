@@ -50,8 +50,6 @@ export default function App() {
               <Route path="/admin/tables" element={<AdminTables />} />
               <Route path="/admin/menu" element={<AdminMenu />} />
               <Route path="/admin/staff" element={<AdminStaff />} />
-
-              <Route path="*" element={<div className="min-h-screen flex items-center justify-center text-2xl font-bold">404</div>} />
             </Routes>
           </BrowserRouter>
           <ToastContainer position="top-right" autoClose={2500} hideProgressBar={false} closeOnClick pauseOnHover theme="light" />
