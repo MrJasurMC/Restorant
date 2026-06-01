@@ -14,8 +14,8 @@ const STATUS_STYLE = {
 };
 
 const ORDER_TYPE_BADGE = {
-  dine_in:  { label: "🪑 Restoranda", cls: "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400" },
-  takeaway: { label: "🥡 Olib ket",   cls: "bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400" },
+  dine_in:  { label: "Restoranda", cls: "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400" },
+  takeaway: { label: "Olib ket",   cls: "bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400" },
 };
 
 function timeSince(dateStr) {
@@ -122,7 +122,7 @@ export default function ChefKitchen() {
                   </div>
                   {order.notes && (
                     <div className="mx-5 mb-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-100 dark:border-yellow-900/30 rounded-xl px-3 py-2 text-xs text-yellow-700 dark:text-yellow-400">
-                      📝 {order.notes}
+                      {order.notes}
                     </div>
                   )}
                   <div className="px-5 pb-5">
@@ -193,5 +193,5 @@ export default function ChefKitchen() {
         )}
       </div>
     </div>
-  );
+  )
 }

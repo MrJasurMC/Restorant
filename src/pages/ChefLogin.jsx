@@ -84,5 +84,5 @@ export default function ChefLogin() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -134,13 +134,13 @@ export default function Menu() {
                 <input
                   value={customer.phone}
                   onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
-                  placeholder="+998 90 123 45 67"
+                  placeholder="+998 ** *** ** **"
                   className="w-full border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-300"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  👥 Necha kishi?
+                  Necha kishi?
                 </label>
                 <select
                   value={customer.people}
@@ -155,7 +155,7 @@ export default function Menu() {
                   Bekor
                 </button>
                 <button type="submit" className="flex-1 bg-orange-500 hover:bg-orange-600 text-white rounded-xl py-3 text-sm font-bold transition-colors">
-                  ✅ Buyurtma berish
+                  Buyurtma berish
                 </button>
               </div>
             </form>
@@ -275,5 +275,5 @@ export default function Menu() {
         )}
       </div>
     </div>
-  );
+  )
 }

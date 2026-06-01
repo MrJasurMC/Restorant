@@ -26,5 +26,5 @@ export default function NotFound() {
         </button>
       </div>
     </div>
-  );
+  )
 }

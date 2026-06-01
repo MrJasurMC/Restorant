@@ -160,12 +160,12 @@ export default function AdminKitchen() {
                       <span className="font-bold text-orange-500">{formatUZS(order.total_price)}</span>
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
         )}
       </div>
     </div>
-  );
+  )
 }

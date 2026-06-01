@@ -92,5 +92,5 @@ export default function AdminTables() {
         </div>
       </div>
     </div>
-  );
+  )
 }

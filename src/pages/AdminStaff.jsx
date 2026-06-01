@@ -27,44 +27,44 @@ export default function AdminStaff() {
   const [tab, setTab] = useState("all");
 
   useEffect(() => {
-    if (!localStorage.getItem("admin_logged_in")) navigate("/admin/auth");
-  }, []);
+    if (!localStorage.getItem("admin_logged_in")) navigate("/admin/auth")
+  }, [])
 
   function openAdd() {
-    setEditing(null);
-    const newPin = generatePin("waiter");
-    setForm({ ...EMPTY, pin: newPin });
-    setShowForm(true);
+    setEditing(null)
+    const newPin = generatePin("waiter")
+    setForm({ ...EMPTY, pin: newPin })
+    setShowForm(true)
   }
 
   function openEdit(member) {
-    setEditing(member.id);
-    setForm({ name: member.name, role: member.role, pin: member.pin });
-    setShowForm(true);
-  }
+    setEditing(member.id)
+    setForm({ name: member.name, role: member.role, pin: member.pin })
+    setShowForm(true)
+    }
 
   function handleRoleChange(role) {
-    setForm(f => ({ ...f, role, pin: generatePin(role) }));
+    setForm(f => ({ ...f, role, pin: generatePin(role) }))
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    if (!form.name.trim()) return showToast("Ism kiritish majburiy!", "error");
-    if (form.pin.length !== 6 || !/^\d{6}$/.test(form.pin)) return showToast("PIN aynan 6 ta raqamdan iborat bo'lishi kerak", "error");
+    e.preventDefault()
+    if (!form.name.trim()) return showToast("Ism kiritish majburiy!", "error")
+    if (form.pin.length !== 6 || !/^\d{6}$/.test(form.pin)) return showToast("PIN aynan 6 ta raqamdan iborat bo'lishi kerak", "error")
 
-    const conflict = staff.find(s => s.pin === form.pin && s.id !== editing);
-    if (conflict) return showToast("Bu PIN allaqachon band!", "error");
+    const conflict = staff.find(s => s.pin === form.pin && s.id !== editing)
+    if (conflict) return showToast("Bu PIN allaqachon band!", "error")
 
     if (editing) {
-      dispatch(updateStaff({ ...form, id: editing, active: staff.find(s => s.id === editing)?.active ?? true }));
-      showToast("Xodim yangilandi ✓");
+      dispatch(updateStaff({ ...form, id: editing, active: staff.find(s => s.id === editing)?.active ?? true }))
+      showToast("Xodim yangilandi")
     } else {
-      dispatch(addStaff(form));
-      showToast("Xodim qo'shildi ✓");
+      dispatch(addStaff(form))
+      showToast("Xodim qo'shildi")
     }
-    setShowForm(false);
-    setEditing(null);
-    setForm(EMPTY);
+    setShowForm(false)
+    setEditing(null)
+    setForm(EMPTY)
   }
 
   function logout() {
@@ -216,5 +216,5 @@ export default function AdminStaff() {
         )}
       </div>
     </div>
-  );
+  )
 }
