@@ -15,7 +15,7 @@ export default function NotFound() {
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Sahifa topilmadi</h2>
         <p className="text-gray-500 dark:text-gray-400 mb-8">
           Siz qidirgan sahifa mavjud emas yoki ko'chirilgan. URL manzilini tekshiring va qayta urinib ko'ring.
-        </p>
+        </p> 
 
         <button  
           onClick={() => navigate("/")}
