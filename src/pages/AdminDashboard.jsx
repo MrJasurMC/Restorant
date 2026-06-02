@@ -39,9 +39,9 @@ export default function AdminDashboard() {
     preparing:    "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
     ready:        "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     delivered:    "bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400",
-    tugallangan:  "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
+    finished:  "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
   };
-  const STATUS_LABEL = { received: "Yangi", preparing: "Tayyorlanmoqda", ready: "Tayyor", delivered: "Yetkazildi", tugallangan: "Tugallandi" };
+  const STATUS_LABEL = { received: "Yangi", preparing: "Tayyorlanmoqda", ready: "Tayyor", delivered: "Yetkazildi", finished: "Tugallandi" };
 
   const ORDER_TYPE_BADGE = {
     dine_in:  "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400",

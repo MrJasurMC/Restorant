@@ -20,7 +20,7 @@ export default function AdminAuth() {
       localStorage.setItem("admin_logged_in", "true");
       navigate("/admin/dashboard");
     } else {
-      setError("Email yoki parol noto'g'ri!");
+      setError("Email yoki parol notog'ri!");
     }
   }
 
